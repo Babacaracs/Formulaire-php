@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Formulaire</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulaire</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body style="background: url(images/BG2.jpg) fixed no-repeat;">
+
+	
+<br>
+	<div class="container" style="border: 0px solid;padding: 50px 60px;-webkit-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);background-color: #ffede5; background-color: white;border-radius: 3%;">
+
+<form action="formulaire.php" method="post" >
+
+	<label for="prenom" class="col-sm-3 control-label">Prénom</label> 
+      <div class="col-sm-9">
+        <input type="text" id="prenom" name="prenom" placeholder="Prénom" class="form-control"  required onchange="dis()">
+        <span id="pr"></span>
+      
+      </div>
+
+      <br>
+
+      <label for="nom" class="col-sm-3 control-label">Nom</label> 
+      <div class="col-sm-9">
+        <input type="text" id="nom" placeholder="Nom" name="nom" class="form-control" required onchange="dis2()">
+         <span id="no"></span>
+      </div>
+
+
+      <br>
+
+      
+
+      <label for="email" class="col-sm-3 control-label">Email</label> 
+      <div class="col-sm-9">
+        <input type="email" id="email" placeholder="Email" name="email" class="form-control" required onchange="dis3()">
+         <span id="em"></span>
+         <br>
+      </div>
+
+
+      <br>
+       <label for="mdp" class="col-sm-3 control-label">Mot de passe</label> 
+      <div class="col-sm-9">
+        <input type="password" id="mdp" placeholder="Mot de passe" name="mdp" class="form-control" required onchange="dis1()">
+         <span id="md"></span>
+      </div>
+
+
+      <br> <label for="mdp1" class="col-sm-3 control-label">Confirmer votre mot de passe</label> 
+      <div class="col-sm-9">
+        <input type="password" id="mdp1" placeholder="Confirmer votre mot de passe" class="form-control" required onchange="dis11()">
+        <span id="md1"></span>
+      </div>
+
+
+      <br>
+
+      <label for="message" class="col-sm-3 control-label">Entrez votre message ci-dessus</label> 
+      <div class="col-sm-9">
+        <textarea  id="message" name="message" style="max-height: 200px;" placeholder="Message" class="form-control" required onchange="dis4()" ></textarea>
+         <span id="mes"></span>
+      </div>
+
+      <br>
+
+        <label class="control-label col-sm-3">Genre</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sexe" id="Radio" value="Femme">Femme
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sexe" id="Radio1" value="Homme" checked>Homme
+                                </label>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    <label for="pays" class="control-label col-sm-3">Dans quel pays habitez-vous ?</label>
+                     <br>     
+                       <select name="pays" id="pays" name="pays" class="form-control col-sm-4" onchange="sel(),dis5()">     
+                       	 <option value=none disabled selected >Séléctionner votre pays</option>
+                         <option value="Senegal">Sénégal</option>
+                         <option value="Guinée">Guinée</option>   
+                         <option value="Gabon">Gabon</option>
+                         <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                         <option value="france">France</option>  
+                         <option value="espagne">Espagne</option>
+                         <option value="italie">Italie</option> 
+                         <option value="royaume-uni">Royaume-Uni</option> 
+                         <option value="canada">Canada</option>  
+                         <option value="etats-unis">Etats-Unis</option>  
+                         <option value="chine">Chine</option>
+                         <option value="japon">Japon</option>    
+                       </select> 
+                        <span id="se"></span>
+                      <br>
+           <div>
+            <label for="languages" class="control-label">Quels Languages appréciées vous ?</label>
+            <br>
+            <INPUT type="checkbox" name="languages" value="HTML" onclick="dis6()"> HTML <br>
+            <INPUT type="checkbox" name="languages" value="PHP" onclick="dis6()"> PHP <br>
+            <INPUT type="checkbox" name="languages" value="JavaScript" onclick="dis6()"> JavaScript <br>
+            <INPUT type="checkbox" name="languages" value="Java"onclick="dis6()"> Java <br>
+        </div>
+         <span id="la"></span>
+
+      <br><br>
+
+	<input type="submit" class="btn btn-primary" name="envoyer" onclick="bb()" >
+	<input type="reset" class="btn btn-primary-2" name="reset">
+</form>
+</div>
+<br>
+
+<script type="text/javascript">
+
+//variables des inputs
+    var b = document.getElementById('nom');
+	var c = document.getElementById('prenom');
+	var d = document.getElementById('email');
+	var mdp = document.getElementById('mdp');
+	var mdp1=document.getElementById('mdp1')
+	var f = document.getElementById('message');
+	var h = document.getElementById('Radio');
+	var i = document.getElementById('Radio1');
+	
+//variables pour indiquer les champs vides
+    var pr = document.getElementById('pr');
+    var se = document.getElementById('se');
+    var la = document.getElementById('la');
+    var no = document.getElementById('no');
+    var em = document.getElementById('em');
+    var mes = document.getElementById('mes');
+    var md= document.getElementById('md');
+    var md1= document.getElementById('md1');
+//variables pour tester la validiter de l'email
+    var tsmail=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+
+//fonctions pour enlever le span erreur
+    function dis(){pr.textContent="";}
+    function dis1(){md.textContent="";}
+    function dis11(){md1.textContent="";}
+    function dis2(){no.textContent="";}
+    function dis3(){em.textContent="";}
+    function dis4(){mes.textContent="";}
+    function dis5(){se.textContent="";}
+    function dis6(){la.textContent="";}
+
+	//identifier la valeur du pays
+	function sel()
+ 	{
+
+ var select = document.getElementById("pays");
+ var choice = select.selectedIndex;
+ var valeur = select.options[choice].value;
+ var texte = select.options[choice].text;
+ if (choice==0) {return 0}
+  else{
+ return(texte);}
+ 	}
+
+
+	
+
+
+	function bb()
+	{
+//variables utilisées pour la concaténation
+		var e = 'Les informations entrées\n';
+		var g = 'remplir les cases suivants :\n';
+    	var fr = 'vos languages préférés :\n';
+
+
+			if (c.value=="") 
+			{
+					g+="-le Prenom\n";
+					 pr.textContent = 'le champs prénom ne doit pas etre vide';
+					 pr.style.color="red"; 
+				}
+
+			else {
+				e+="Prenom : "+c.value+"\n";
+				 pr.textContent="";
+				}
+
+
+			if (b.value=="") 
+				{
+					g+="-le Nom\n";
+					no.textContent = 'le champs nom ne doit pas etre vide';
+					no.style.color="red"
+				}
+
+			else {
+				e+="Nom : "+b.value+"\n";
+				no.textContent="";
+			}
+
+
+			if (d.value=="" || !tsmail.test(d.value)) 
+				{g+="-le Email\n";
+			em.textContent = 'le champs email est vide ou incorrect';
+			em.style.color="red";
+		}
+
+			else {
+				e+="Email : "+d.value+"\n";
+				em.textContent="";
+			}
+
+
+
+			if (f.value=="") 
+				{
+					g+="-le Message\n";
+			mes.textContent = 'le champs message ne doit pas etre vide';
+			mes.style.color="red";
+				
+				}
+			else {
+				e+="Message :  "+f.value+"\n";
+			}
+
+			
+
+			if (mdp.value=="") 
+				{
+					g+="-le Mot de passe\n";
+					md.textContent = 'le champs mot de passe ne doit pas etre vide';
+					md.style.color="red";
+				}
+			
+			else
+			 {
+			 	e+="Mot de passe : "+mdp.value+"\n";
+			 	md.textContent="";
+			 }
+
+
+			if (mdp.value!=mdp1.value)
+			 {
+			 	g+="-Mot de passe non identique\n";
+			 	md1.textContent = 'le  mot de passe n"est pas identique';
+				md1.style.color="red";
+			 }
+
+
+		  if (h.checked==false && i.checked==true)
+		     {
+		   	e+="Genre : "+i.value+"\n";
+		     }
+
+		  else
+	   	   {
+		  	e+="Genre : "+h.value+"\n";
+		   }
+		
+
+		  if (sel()==0)
+		   {
+		   	g+="-choisir le pays\n";
+		   	se.textContent = 'choisir le pays';
+			se.style.color="red"
+		   }
+
+    	  else 
+      	   {
+      	    e+="Pays :  "+sel()+"\n";
+      	   }
+
+//Test les languages cochez
+
+     if ( document.getElementsByName("languages")[0].checked==1)
+         {
+        	fr+="-"+document.getElementsByName("languages")[0].value+"\n";
+         }
+
+     if ( document.getElementsByName("languages")[1].checked==1)
+         {
+         	fr+="-"+document.getElementsByName("languages")[1].value+"\n";
+         }
+
+     if ( document.getElementsByName("languages")[2].checked==1)
+         {
+         	fr+="-"+document.getElementsByName("languages")[2].value+"\n";
+         }
+
+     if ( document.getElementsByName("languages")[3].checked==1)
+        {
+        	fr+="-"+document.getElementsByName("languages")[3].value+"\n";
+        }
+
+
+
+      if (document.getElementsByName("languages")[0].checked==false&&document.getElementsByName("languages")[1].checked==false&&document.getElementsByName("languages")[2].checked==false&&document.getElementsByName("languages")[3].checked==false)
+      {
+        g+="-Cocher un language au minimum \n";
+        la.textContent = 'Cocher un language au minimum';
+		la.style.color="red"
+
+      }
+      else{
+        e+=fr+"\n";
+        fr="";
+      }
+
+   //  	if (b.value==""||c.value==""||d.value==""||!tsmail.test(d.value)||f.value==""||sel()==0||mdp.value==""||(mdp.value!=mdp1.value)||(document.getElementsByName("languages")[0].checked==false&&document.getElementsByName("languages")[1].checked==false&&document.getElementsByName("languages")[2].checked==false&&document.getElementsByName("languages")[3].checked==false))
+			// 	   {
+			// 		alert(g);
+			// 		g="";
+   //     			    e="";
+			// 	   }
+			// else{
+			// 		alert(e);
+   //        			e="";
+			// 	}
+				
+			// }
+		
+	
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
